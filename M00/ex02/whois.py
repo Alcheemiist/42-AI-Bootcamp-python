@@ -4,12 +4,12 @@ import sys
 if (len(sys.argv) == 2):
     if (sys.argv[1].isdigit()):
         if ((int(sys.argv[1]) % 2) == 1):       
-             print "Odd"
+             print("Odd")
         elif ((int(sys.argv[1]) == 0)):
-            print"I'm Zero"
+            print("I'm Zero")
         else:
-            print "Even"
+            print("Even")
     else :
-        print "ERROR"
+        print("ERROR")
 else :
-    print "ERROR"
+    print("ERROR")

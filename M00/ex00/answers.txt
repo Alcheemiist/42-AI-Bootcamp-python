@@ -1,4 +1,4 @@
-1- pip freeze
+1- pip list
 2- pip list 
 3- pip show numpy
-4- pip list (pip frezze) > requirements.txt 
+4- pip frezze > requirements.txt 

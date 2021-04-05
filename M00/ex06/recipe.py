@@ -1,3 +1,14 @@
+class bcolors:
+    HEADER = '\033[95m'
+    OKBLUE = '\033[94m'
+    OKCYAN = '\033[96m'
+    OKGREEN = '\033[92m'
+    WARNING = '\033[93m'
+    FAIL = '\033[91m'
+    ENDC = '\033[0m'
+    BOLD = '\033[1m'
+    UNDERLINE = '\033[4m'
+
 def print_recipe(s):
     print( "Ingredients list : ", str(cookbook[s]["ingredients"]))
     return 
@@ -78,8 +89,27 @@ while True:
         print("To exit, enter 5.")
     else:
         m = int(m)
-        if (m == 1):
-            print("name = ")
-            name_recipe = input(">> ")
-            print("name = ")
-            name_recipe = input(">> ")
+        print(m)
+        if (m == 3):
+            while True:
+                print(bcolors.HEADER + "Please enter the recipe's name to get its details:" + bcolors.ENDC)
+                string = ""
+                string = input(">> ")
+                s = cookbook.get(string)
+               
+                if (s == None):
+                    print('\033[93m' + "reciepe not found" + '\033[0m')
+                    print("the recipe avalaible are :")    
+                    print_cookbook(s)
+                else:
+                    print("Recipe for {string}:".format(string=string))
+                    print("Ingrediens list : {}".format(cookbook[string]["ingredients"]))
+                    print("To be eaten for {}".format(cookbook[string]["meal"]))
+                    print("Takes {} minutes of cooking.".format( cookbook[string]["prep_time"]))
+        elif (m == 1):
+            print("name of the recipe =")
+                
+
+        else:
+            print("This option does not exist, please type the corresponding number.")
+            print("To exit, enter 5.")

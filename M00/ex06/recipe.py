@@ -33,21 +33,6 @@ cookbook = {
         } 
 }
 
-"""" 1 - 
-x = cookbook.keys() 
-
-print("keys are {x}".format(x=x))
-
-x = cookbook.values() 
-
-print(" \nvalues are {x}".format(x=x))
-
-x = cookbook.items() 
-
-print("\n items pair are {x}".format(x=x))
-
-"""
-
 def delet_recipe(name):
     del cookbook[name]
 
@@ -85,20 +70,18 @@ prep_time = ""
 while True:
     m = input(">> ")
     if m.isdigit() == False:
-        print("This option does not exist, please type the corresponding number.")
-        print("To exit, enter 5.")
+        print( bcolors.WARNING + "This option does not exist, please type the corresponding number. To exit, enter 5." + bcolors().ENDC)
+        print_prompet()
     else:
         m = int(m)
-        print(m)
         if (m == 3):
-            while True:
                 print(bcolors.HEADER + "Please enter the recipe's name to get its details:" + bcolors.ENDC)
                 string = ""
-                string = input(">> ")
+                string = input(">> ").strip(' ')
                 s = cookbook.get(string)
                
                 if (s == None):
-                    print('\033[93m' + "reciepe not found" + '\033[0m')
+                    print('\033[93m' + "reciepe {} not found".format(string) + '\033[0m')
                     print("the recipe avalaible are :")    
                     print_cookbook(s)
                 else:
@@ -106,10 +89,34 @@ while True:
                     print("Ingrediens list : {}".format(cookbook[string]["ingredients"]))
                     print("To be eaten for {}".format(cookbook[string]["meal"]))
                     print("Takes {} minutes of cooking.".format( cookbook[string]["prep_time"]))
+                    print_prompet()
+        elif (m == 2):
+            print("put the name of the item you wanna delete ?")
+            string = input(">> ").strip(" ")
+            cookbook.pop(string)
+            print("the {} was delted succesifly".format(string))
+            print_prompet()
         elif (m == 1):
-            print("name of the recipe =")
-                
-
+            print(bcolors.OKGREEN + "youre now on process to add a recipe to the cookbook" + bcolors.ENDC + "\n")
+            print("name of the recipe = ? ")
+            new_item_name = input(">> ")
+            print("enter the ingeridation on format : [ x , y , z ...]")
+            ingredien_meal = list(input(">> ").split(","))
+            print("type of meal {} :".format(new_item_name))
+            meal_type = input(">> ")
+            print("How it take to prepare {} ?".format(new_item_name))
+            preparation_time = input(">> ")
+            i = 0
+            while (i < 3):
+                print("adding item to cookbok.......")
+                i += 1
+            add_recipe(new_item_name , ingredien_meal , meal_type , preparation_time )
+        elif m == 4:
+            print("the recipes avalaibale on the bookbook are :")
+            print_cookbook(" ")
+        elif m == 5:
+            print("exit cookbook")
+            exit()
         else:
             print("This option does not exist, please type the corresponding number.")
             print("To exit, enter 5.")

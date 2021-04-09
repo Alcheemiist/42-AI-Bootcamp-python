@@ -18,7 +18,7 @@ def ft_progress(lst):
         print("ETA: {timee}s [{percentage}%][{tool}>{space}] {i}/{lentgh} | elapsed time {ttime}s".format( timee=timee, percentage=percentage,tool= e * "=" ,space= s * " ",i=i+1,lentgh=lenght,ttime=ttime) , end='\r')
         yield i 
     
-
+ 
 listy = range(700)
 ret = 0
 

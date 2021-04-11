@@ -34,9 +34,9 @@ if y== 0:
     operation = "ERROR (div by zero)"
 else:
     operation = x / y
-    print("Quotient:    " + str(operation))
+print("Quotient:    " + str(operation))
 if y== 0:
     operation = "ERROR (modulo by zero)"
 else:
     operation = int(x % y)
-    print("Remainder:   " + str(operation))
+print("Remainder:   " + str(operation))

@@ -4,6 +4,6 @@ def step_back(x):
 import sys
 sent_str = ""
 for i in sys.argv[1:]:
-    sent_str += str(i) + " "
+    sent_str += str(i).swapcase() + " "
 
 print(step_back(sent_str.strip()))

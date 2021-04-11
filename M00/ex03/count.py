@@ -1,8 +1,10 @@
 import sys 
+import string 
 
 def get_input():
     txt = ""
-    print("text to analyze")
+    print("text to analyze :")
+    print(">> ",end='')
     for line in sys.stdin:
         txt += line
     return txt
@@ -18,7 +20,7 @@ def text_analyzer(*text):
     """
     if (len(text) > 1):
         print("ERROR")
-        exit()
+        exit(-1)
     elif len(text) == 0:
         txt = get_input()
     else :
@@ -28,7 +30,7 @@ def text_analyzer(*text):
     print ("this text contain " ,lent, "characters :")
     p = l = u = s = 0  
     for i in txt:
-        if str(i) == ('.') or str(i) == (',') or str(i) == ('?') or str(i) == ('!') or str(i) == (',') or str(i) == ("'") or str(i) == ("-") :
+        if str(i) in string.punctuation :
            p += 1 
         elif str(i).isupper():
             u += 1
@@ -41,6 +43,3 @@ def text_analyzer(*text):
     print ("- lower = ", l)
     print ("- space = ", s)
     print(" p + u + l + s =", u + p + l + s)
-
-
-text_analyzer()

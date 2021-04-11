@@ -3,7 +3,7 @@ from random import randint
 number = randint(1, 99)
 
 """ To set it manually """
-number = number 
+number = 42
 
 def game_prompt():
     num = 0

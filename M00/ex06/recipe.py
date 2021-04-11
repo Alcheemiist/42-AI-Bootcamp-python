@@ -1,3 +1,5 @@
+import os
+
 class bcolors:
     HEADER = '\033[95m'
     OKBLUE = '\033[94m'
@@ -53,7 +55,7 @@ def print_cookbook(c):
 
 
 def print_prompet():
-    print("Please select an option by typing the corresponding number:")
+    print("\nPlease select an option by typing the corresponding number:")
     print("1: Add a recipe")
     print("2: Delete a recipe")
     print("3: Print a recipe")
@@ -112,8 +114,10 @@ while True:
                 i += 1
             add_recipe(new_item_name , ingredien_meal , meal_type , preparation_time )
         elif m == 4:
+            os.system("clear")
             print("the recipes avalaibale on the bookbook are :")
             print_cookbook(" ")
+            print_prompet()
         elif m == 5:
             print("exit cookbook")
             exit()

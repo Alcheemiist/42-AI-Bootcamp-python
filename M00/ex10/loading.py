@@ -1,4 +1,3 @@
-
 import time
 import sys
 
@@ -25,8 +24,14 @@ ret = 0
 for elem in ft_progress(listy):
     ret += (elem + 3) % 5
     time.sleep(0.01)
+<<<<<<< HEAD
+
+print()
+print(ret)
+=======
 
 print()
 print(ret)
 
 
+>>>>>>> refs/remotes/origin/main
